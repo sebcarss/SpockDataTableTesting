@@ -1,11 +1,19 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'groovy'
 
 repositories {
-    jcenter()
+    // Used for the Spock releases
+    mavenCentral()
+    // Used for any snapshots that may be required for Spock
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
     // Logging
     compile 'org.slf4j:slf4j-api:1.7.25'
+
+    // mandatory dependencies for using Spock
+    compile "org.codehaus.groovy:groovy-all:2.4.15"
+    testCompile "org.spockframework:spock-core:1.1-groovy-2.4"
 }
